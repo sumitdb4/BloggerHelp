@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confetti Party!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #282c34;
+            color: white;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #61dafb;
+            border: none;
+            border-radius: 5px;
+            color: #282c34;
+        }
+
+        button:hover {
+            background-color: #21a1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Confetti Party!</h1>
+    <button id="celebrateBtn">Click to Celebrate!</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script>
+  document.getElementById('celebrateBtn').onclick = function() {
+var end = Date.now() + (15 * 1000);
+
+// go Buckeyes!
+var colors = ['#bb0000', '#ffffff'];
+
+(function frame() {
+  confetti({
+    particleCount: 2,
+    angle: 60,
+    spread: 55,
+    origin: { x: 0 },
+    colors: colors
+  });
+  confetti({
+    particleCount: 2,
+    angle: 120,
+    spread: 55,
+    origin: { x: 1 },
+    colors: colors
+  });
+
+  if (Date.now() < end) {
+    requestAnimationFrame(frame);
+  }
+}());
+        };
+    </script>
+</body>
+</html>
